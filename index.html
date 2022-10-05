@@ -7,12 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canvas</title>
     <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://kit.fontawesome.com/2308894a4c.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <nav class="primary-tool-navigation">
-
+        <div class="drawing-tool-container">
+            <span class="drawing-rectangle"><i class="fa-regular fa-rectangle"></i></span>
+        </div>
     </nav>
+    <div class="canvas-container">
+        <canvas id="canvas-real" class="canvas-real canvas"></canvas>
+        <canvas id="canvas-draft" class="canvas-draft canvas"></canvas>
+    </div>
 </body>
 
 </html>
