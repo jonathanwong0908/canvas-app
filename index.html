@@ -15,7 +15,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
 
+    <!-- libraries -->
+    <script src="https://unpkg.com/vanilla-picker@2" defer></script>
+
+    <!-- scripts -->
     <script src="./javascript/canvas-common.js" defer></script>
+    <script src="./javascript/color-picker.js" defer></script>
 </head>
 
 <body class="grid bg-neutral-200">
@@ -37,16 +42,18 @@
 
             <button class="tool-button"><i class="fa-solid fa-eraser"></i></button>
         </div>
-        <div class="color-tool-container grid">
+
+        <div class="color-tool-container flex">
             <div class="stroke-color-container">
                 <label for="stroke-color"><span class="ff-primary fs-300 text-neutral-100">Stroke</span></label>
-                <button class="stroke-color-picker"></button>
+                <button class="stroke-color-picker tool-button"></button>
             </div>
             <div class="fill-color-container">
                 <label for="fill-color"><span class="ff-primary fs-300 text-neutral-100">Fill</span></label>
-                <button class="fill-color-picker"></button>
+                <button class="fill-color-picker tool-button"></button>
             </div>
         </div>
+
         <div class="undo-redo-container flex">
             <button class="tool-button undo-button"><i class="fa-solid fa-rotate-left"></i></button>
             <button class="tool-button redo-button"><i class="fa-solid fa-rotate-right"></i></button>
@@ -57,6 +64,9 @@
         <canvas id="canvas-real" width="480" height="480" class="canvas-real canvas"></canvas>
         <canvas id="canvas-draft" width="480" height="480" class="canvas-draft canvas"></canvas>
     </div>
+
+
+
 </body>
 
 </html>

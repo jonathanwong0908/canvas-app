@@ -278,13 +278,14 @@ body {
     cursor: pointer;
 }
 
-[type="color"] {
-    appearance: none;
-    padding: 0;
-    border: none;
+.stroke-color-picker,
+.fill-color-picker {
+    height: 2rem;
+    width: 3.72rem;
 }
 
-.undo-redo-container {
+.undo-redo-container,
+.color-tool-container {
     justify-content: space-between;
 }
 
