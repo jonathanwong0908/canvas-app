@@ -10,22 +10,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
 
+    <script src="./javascript/canvas-common.js" defer></script>
 </head>
 
-<body>
-    <nav class="primary-tool-navigation">
-        <div class="drawing-tool-container">
-            <button><i class="fa-regular fa-rectangle"></i></button>
+<body class="grid bg-neutral-200">
+    <nav class="primary-tool-navigation bg-neutral-700 flow">
+        <div class="admin-tool-container grid">
+            <button class="tool-button"><i class="fa-solid fa-file-import"></i></button>
+            <button class="tool-button"><i class="fa-solid fa-download"></i></button>
+            <button class="tool-button"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        <div class="drawing-tool-container grid">
+            <button class="tool-button draw-button"><i class="fa-solid fa-pencil"></i></button>
+            <button class="tool-button line-button"><i class="fa-solid fa-slash"></i></button>
+            <button class="tool-button rectangle-button"><i class="fa-regular fa-square"></i></button>
+            <button class="tool-button circle-button"><i class="fa-regular fa-circle"></i></button>
+            <button class="tool-button polygon-button"><i class="fa-solid fa-draw-polygon"></i></button>
+            <button class="tool-button bezier-curve-button"><i class="fa-solid fa-bezier-curve"></i></button>
+
+            <button class="tool-button ff-primary fw-bold"><u>T</u></button>
+
+            <button class="tool-button"><i class="fa-solid fa-eraser"></i></button>
+        </div>
+        <div class="color-tool-container grid">
+            <div class="stroke-color-container">
+                <label for="stroke-color"><span class="ff-primary fs-300 text-neutral-100">Stroke</span></label>
+                <button class="stroke-color-picker"></button>
+            </div>
+            <div class="fill-color-container">
+                <label for="fill-color"><span class="ff-primary fs-300 text-neutral-100">Fill</span></label>
+                <button class="fill-color-picker"></button>
+            </div>
+        </div>
+        <div class="undo-redo-container flex">
+            <button class="tool-button undo-button"><i class="fa-solid fa-rotate-left"></i></button>
+            <button class="tool-button redo-button"><i class="fa-solid fa-rotate-right"></i></button>
         </div>
     </nav>
-    <div class="canvas-container">
-        <canvas id="canvas-real" class="canvas-real canvas"></canvas>
-        <canvas id="canvas-draft" class="canvas-draft canvas"></canvas>
+
+    <div class="canvas-container grid">
+        <canvas id="canvas-real" width="480" height="480" class="canvas-real canvas"></canvas>
+        <canvas id="canvas-draft" width="480" height="480" class="canvas-draft canvas"></canvas>
     </div>
-    <script src="https://kit.fontawesome.com/2308894a4c.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
