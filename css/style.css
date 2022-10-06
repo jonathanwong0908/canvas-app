@@ -5,7 +5,7 @@
     --clr-neutral-900: hsl(0, 0%, 0%);
     --clr-neutral-700: hsl(0, 0%, 20%);
     --clr-neutral-300: hsl(0, 4%, 80%);
-    --clr-neutral-200: hsl(0, 0%, 95%);
+    --clr-neutral-200: hsl(0, 1%, 90%);
     --clr-neutral-100: hsl(0, 0%, 100%);
 
     --ff-primary: 'Montserrat', sans-serif;
@@ -48,7 +48,8 @@ dl,
 dd,
 a,
 ul,
-li {
+li,
+input {
     margin: 0;
     padding: 0;
 }
@@ -260,7 +261,8 @@ body {
 }
 
 .drawing-tool-container,
-.admin-tool-container {
+.admin-tool-container,
+.stroke-width-container {
     grid-template-columns: repeat(3, auto);
 }
 
@@ -272,10 +274,53 @@ body {
     aspect-ratio: 1;
     border: none;
     border-radius: 3px;
+    background-color: var(--clr-neutral-200);
 }
 
 .tool-button:hover {
     cursor: pointer;
+    background-color: var(--clr-neutral-300);
+}
+
+.drawing-tool-container .tool-button[selected="true"] {
+    background-color: var(--clr-neutral-700);
+    color: white;
+    border: 2px solid white;
+}
+
+.width-display {
+    align-items: center;
+    height: 100%;
+    width: 3.72rem;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--clr-neutral-200);
+}
+
+.width-size {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+}
+
+.stroke-width-size-input {
+    gap: 0;
+}
+
+.stroke-width-text-input,
+.stroke-width-range-input {
+    width: 100%;
+}
+
+.stroke-width-text-input {
+    text-align: center;
+    background-color: var(--clr-neutral-200);
+    border: none;
+    border-radius: 3px;
+}
+
+.stroke-width-range-input {
+    margin-top: .5rem;
 }
 
 .stroke-color-picker,
@@ -284,8 +329,14 @@ body {
     width: 3.72rem;
 }
 
+.stroke-color-picker,
+.fill-color-picker {
+    background-color: black;
+}
+
 .undo-redo-container,
-.color-tool-container {
+.color-tool-container,
+.stroke-width-container {
     justify-content: space-between;
 }
 
