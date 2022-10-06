@@ -289,7 +289,7 @@ body {
 }
 
 .width-display {
-    align-items: center;
+    place-items: center;
     height: 100%;
     width: 3.72rem;
     border: none;
@@ -298,8 +298,9 @@ body {
 }
 
 .width-size {
-    width: 100%;
-    height: 1px;
+    width: 12px;
+    aspect-ratio: 1;
+    border-radius: 50%;
     background-color: black;
 }
 
@@ -307,12 +308,12 @@ body {
     gap: 0;
 }
 
-.stroke-width-text-input,
+.stroke-width-text,
 .stroke-width-range-input {
     width: 100%;
 }
 
-.stroke-width-text-input {
+.stroke-width-text {
     text-align: center;
     background-color: var(--clr-neutral-200);
     border: none;
@@ -321,6 +322,7 @@ body {
 
 .stroke-width-range-input {
     margin-top: .5rem;
+    cursor: pointer;
 }
 
 .stroke-color-picker,
