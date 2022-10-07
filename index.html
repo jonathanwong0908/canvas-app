@@ -32,18 +32,22 @@
             <button class="tool-button"><i class="fa-solid fa-trash"></i></button>
         </div>
         <div class="drawing-tool-container grid">
-            <button class="tool-button draw-button" selected="true"><i class="fa-solid fa-pencil"></i></button>
-            <button class="tool-button line-button" selected="false"><i class="fa-solid fa-slash"></i></button>
-            <button class="tool-button rectangle-button" selected="false"><i class="fa-regular fa-square"></i></button>
-            <button class="tool-button circle-button" selected="false"><i class="fa-regular fa-circle"></i></button>
-            <button class="tool-button polygon-button" selected="false"><i
+            <button class="tool-button drawing-tool-button draw-button" selected="true"><i
+                    class="fa-solid fa-pencil"></i></button>
+            <button class="tool-button drawing-tool-button line-button" selected="false"><i
+                    class="fa-solid fa-slash"></i></button>
+            <button class="tool-button drawing-tool-button rectangle-button" selected="false"><i
+                    class="fa-regular fa-square"></i></button>
+            <button class="tool-button drawing-tool-button circle-button" selected="false"><i
+                    class="fa-regular fa-circle"></i></button>
+            <button class="tool-button drawing-tool-button polygon-button" selected="false"><i
                     class="fa-solid fa-draw-polygon"></i></button>
-            <button class="tool-button bezier-curve-button" selected="false"><i
+            <button class="tool-button drawing-tool-button bezier-curve-button" selected="false"><i
                     class="fa-solid fa-bezier-curve"></i></button>
-
-            <button class="tool-button ff-primary fw-bold" selected="false"><u>T</u></button>
-
-            <button class="tool-button" selected="false"><i class="fa-solid fa-eraser"></i></button>
+            <button class="tool-button drawing-tool-button ff-primary fw-bold text-button"
+                selected="false"><u>T</u></button>
+            <button class="tool-button drawing-tool-button eraser-button" selected="false"><i
+                    class="fa-solid fa-eraser"></i></button>
         </div>
 
         <div class="stroke-width-container flex">
@@ -79,9 +83,6 @@
         <canvas id="canvas-real" width="480" height="480" class="canvas-real canvas"></canvas>
         <canvas id="canvas-draft" width="480" height="480" class="canvas-draft canvas"></canvas>
     </div>
-
-
-
 </body>
 
 </html>
