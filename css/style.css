@@ -357,5 +357,12 @@ body {
 .canvas {
     position: absolute;
     border-radius: 5px;
+}
+
+.canvas-real {
     background-color: white;
+}
+
+.canvas-draft {
+    background-color: transparent;
 }

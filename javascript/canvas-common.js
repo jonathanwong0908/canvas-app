@@ -5,22 +5,21 @@ const contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
 
-// drawing buttons
 const drawingToolButtons = document.querySelectorAll(".drawing-tool-button");
-const drawButton = document.querySelector(".draw-button");
-const lineButton = document.querySelector(".line-button");
-const RectangleButton = document.querySelector(".rectangle-button");
-const circleButton = document.querySelector(".circle-button");
-const polygonButton = document.querySelector(".polygon-button");
-const bezierCurveButton = document.querySelector(".bezier-curve-button");
-const textButton = document.querySelector(".text-button");
-const eraserButton = document.querySelector(".eraser-button");
 
 drawingToolButtons.forEach((button) => {
     button.addEventListener("click", () => {
         let currentSelectedButton = document.querySelector("[selected=true]");
         currentSelectedButton.setAttribute("selected", "false");
         button.setAttribute("selected", "true");
+    })
+})
+
+$(() => {
+    currentFunction = new DrawingLine(contextReal);
+
+    $(".line-button").on("click", () => {
+        currentFunction = new DrawingLine(contextReal);
     })
 })
 
