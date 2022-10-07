@@ -10,6 +10,7 @@ class DrawingLine extends PaintFunction{
 
         this.context.strokeStyle = strokeColor;
         this.context.lineJoin = "round";
+        this.context.lineCap = "round";
         this.context.lineWidth = strokeWidth;
         this.context.beginPath();
         this.context.moveTo(coordinates[0], coordinates[1]);
