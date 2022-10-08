@@ -24,7 +24,6 @@ class DrawingLine extends PaintFunction{
 
     onMouseUp() {
         pushToUndoArray();
-        console.log(canvasReal.toDataURL());
     }
 
     onMouseLeave() {}
