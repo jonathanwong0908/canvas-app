@@ -5,7 +5,7 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseDown(coordinates, event) {
-        let strokeColor = document.querySelector(".stroke-color-picker").getAttribute("selected-color");
+        let strokeColor = strokeColorInput.getAttribute("selected-color");
         let strokeWidth = document.querySelector(".stroke-width-range-input").getAttribute("value");
 
         this.context.strokeStyle = strokeColor;
@@ -21,7 +21,11 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseMove() {}
-    onMouseUp() {}
+    onMouseUp() {
+        undoArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
+        undoIndex++;
+        console.log(undoArray, undoIndex);
+    }
     onMouseLeave() {}
     onMouseEnter() {}
 

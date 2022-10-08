@@ -5,6 +5,17 @@ const contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
 
+let startBackgroundColor = "white";
+
+// undo variables
+let undoArray = [];
+let undoIndex = -1;
+
+// redo variables
+let redoArray = [];
+let redoIndex = -1;
+
+// drawing tool color change while selected
 const drawingToolButtons = document.querySelectorAll(".drawing-tool-button");
 
 drawingToolButtons.forEach((button) => {
@@ -14,6 +25,10 @@ drawingToolButtons.forEach((button) => {
         button.setAttribute("selected", "true");
     })
 })
+
+// set fill and stroke inputs as variables for usage in other scripts
+const strokeColorInput = document.querySelector(".stroke-color-picker");
+const fillColorInput = document.querySelector(".fill-color-picker");
 
 $(() => {
     currentFunction = new DrawingLine(contextReal);
