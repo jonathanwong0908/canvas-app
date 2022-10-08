@@ -21,11 +21,12 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseMove() {}
+
     onMouseUp() {
-        undoArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
-        undoIndex++;
-        console.log(undoArray, undoIndex);
+        pushToUndoArray();
+        console.log(canvasReal.toDataURL());
     }
+
     onMouseLeave() {}
     onMouseEnter() {}
 

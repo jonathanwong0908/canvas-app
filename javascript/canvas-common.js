@@ -11,10 +11,6 @@ let startBackgroundColor = "white";
 let undoArray = [];
 let undoIndex = -1;
 
-// redo variables
-let redoArray = [];
-let redoIndex = -1;
-
 // drawing tool color change while selected
 const drawingToolButtons = document.querySelectorAll(".drawing-tool-button");
 
