@@ -8,8 +8,8 @@ let dragging = false;
 let startBackgroundColor = "white";
 
 // undo variables
-let undoArray = [];
-let undoIndex = -1;
+let canvasHistoryArray = [];
+let canvasHistoryIndex = -1;
 
 // drawing tool color change while selected
 const drawingToolButtons = document.querySelectorAll(".drawing-tool-button");

@@ -10,31 +10,24 @@ redoButton.addEventListener("click", () => {
 })
 
 function undo() {
-    if (undoIndex > 0) {
-        undoIndex--;
-        let canvasPic = new Image();
-        canvasPic.src = undoArray[undoIndex];
-        canvasPic.onload = function () {
-            contextReal.drawImage(canvasPic, 0, 0);
-        }
+    if (canvasHistoryIndex === 0) {
+        clearCanvas();
+        // from clear-canvas.js
+        canvasHistoryIndex--;
+    } else if (canvasHistoryIndex > 0) {
+        canvasHistoryIndex--;
+        contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex], 0, 0);
+    } else {
+        return;
     }
 }
 
 function redo() {
-    if (undoIndex < undoArray.length - 1) {
-        undoIndex++;
-        let canvasPic = new Image();
-        canvasPic.src = undoArray[undoIndex];
-        canvasPic.onload = function () {
-            contextReal.drawImage(canvasPic, 0, 0);
-        }
+    // and if current index is less than the length of the array?
+    if (canvasHistoryIndex < canvasHistoryArray.length - 1) {
+        canvasHistoryIndex++;
+        contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex], 0, 0);
+    } else {
+        return;
     }
-}
-
-function pushToUndoArray() {
-    undoIndex++;
-    if (undoIndex < undoArray.length) {
-        undoArray.length = undoIndex;
-    }
-    undoArray.push(canvasReal.toDataURL());
 }

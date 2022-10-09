@@ -23,7 +23,8 @@ class DrawingLine extends PaintFunction{
     onMouseMove() {}
 
     onMouseUp() {
-        pushToUndoArray();
+        canvasHistoryArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
+        canvasHistoryIndex++;
     }
 
     onMouseLeave() {}
