@@ -23,8 +23,8 @@ class DrawingLine extends PaintFunction{
     onMouseMove() {}
 
     onMouseUp() {
-        canvasHistoryArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
-        canvasHistoryIndex++;
+        updateCanvasHistory();
+        // from undo-redo.js
     }
 
     onMouseLeave() {}

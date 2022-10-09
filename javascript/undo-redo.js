@@ -23,11 +23,15 @@ function undo() {
 }
 
 function redo() {
-    // and if current index is less than the length of the array?
     if (canvasHistoryIndex < canvasHistoryArray.length - 1) {
         canvasHistoryIndex++;
         contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex], 0, 0);
     } else {
         return;
     }
+}
+
+function updateCanvasHistory() {
+    canvasHistoryArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
+    canvasHistoryIndex++;
 }
