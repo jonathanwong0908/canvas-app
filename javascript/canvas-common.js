@@ -52,6 +52,10 @@ $(() => {
         currentFunction = new DrawingCircle(contextReal, contextDraft);
     })
 
+    $(".quadratic-curve-button").click(() => {
+        currentFunction = new DrawingQuadraticCurve(contextReal, contextDraft);
+    })
+
     $(".eraser-button").click(() => {
         currentFunction = new Eraser(contextReal);
     })
