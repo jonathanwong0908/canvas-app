@@ -37,8 +37,11 @@ $(() => {
     })
 
     $(".rectangle-button").click(() => {
-        console.log("clicked")
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
+    })
+
+    $(".eraser-button").click(() => {
+        currentFunction = new Eraser(contextReal);
     })
 })
 
