@@ -2,6 +2,10 @@ const canvasReal = document.querySelector("#canvas-real");
 const canvasDraft = document.querySelector("#canvas-draft");
 const contextReal = canvasReal.getContext("2d");
 const contextDraft = canvasDraft.getContext("2d");
+
+contextReal.fillStyle = "white";
+contextReal.fillRect(0, 0, canvasReal.width, canvasReal.height);
+
 let currentFunction;
 let dragging = false;
 
