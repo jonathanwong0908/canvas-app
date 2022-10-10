@@ -288,6 +288,10 @@ body {
     border: 2px solid white;
 }
 
+.stroke-width-title {
+    margin-bottom: .15rem;
+}
+
 .width-display {
     place-items: center;
     height: 100%;
