@@ -15,6 +15,8 @@ const strokePopup = new Picker({
         strokeColorInput.style.backgroundColor = rgbaString;
         strokeColorInput.setAttribute("selected-color", rgbaString);
         currentStrokeColor = rgbaString;
+        document.querySelector(".width-size").style.backgroundColor = rgbaString;
+        document.documentElement.style.setProperty("--accent-clr", rgbaString);
     }
 });
 

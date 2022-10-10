@@ -23,6 +23,8 @@
     --fs-700: 2rem;
     --fs-800: 2.3rem;
     --fs-900: 3.5rem;
+
+    --accent-clr: var(--clr-neutral-900);
 }
 
 /*       */
@@ -327,6 +329,7 @@ body {
 .stroke-width-range-input {
     margin-top: .5rem;
     cursor: pointer;
+    accent-color: var(--accent-clr);
 }
 
 .stroke-color-picker,
