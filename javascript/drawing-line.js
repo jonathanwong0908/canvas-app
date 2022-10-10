@@ -1,34 +1,37 @@
 class DrawingLine extends PaintFunction{
-    constructor(contextReal) {
+    constructor(contextReal, contextDraft) {
         super();
-        this.context = contextReal;
+        this.contextReal = contextReal;
+        this.contextDraft = contextDraft;
     }
 
     onMouseDown(coordinates, event) {
-        this.context.strokeStyle = currentStrokeColor;
-        this.context.lineJoin = "round";
-        this.context.lineCap = "round";
-        this.context.lineWidth = currentStrokeWidth;
-        this.context.beginPath();
-        this.context.moveTo(coordinates[0], coordinates[1]);
+        this.contextReal.strokeStyle = currentStrokeColor;
+        this.contextDraft.strokeStyle = currentStrokeColor;
+        this.contextReal.lineCap = "round";
+        this.contextDraft.lineCap = "round";
+        this.contextReal.lineWidth = currentStrokeWidth;
+        this.contextDraft.lineWidth = currentStrokeWidth;
+        this.origX = coordinates[0];
+        this.origY = coordinates[1];
+        this.contextReal.beginPath();
+        this.contextReal.moveTo(this.origX, this.origY);
     }
 
     onDragging(coordinates, event) {
-        this.draw(coordinates[0], coordinates[1]);
+        dragging = true;
+        this.contextDraft.closePath();
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextDraft.beginPath();
+        this.contextDraft.moveTo(this.origX, this.origY);
+        this.contextDraft.lineTo(coordinates[0], coordinates[1]);
+        this.contextDraft.stroke();
     }
 
-    onMouseMove() {}
-
-    onMouseUp() {
+    onMouseUp(coordinates, event) {
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextReal.lineTo(coordinates[0], coordinates[1]);
+        this.contextReal.stroke();
         updateCanvasHistory();
-        // from undo-redo.js
-    }
-
-    onMouseLeave() {}
-    onMouseEnter() {}
-
-    draw(x, y) {
-        this.context.lineTo(x, y);
-        this.context.stroke();
     }
 }

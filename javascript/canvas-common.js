@@ -30,10 +30,14 @@ drawingToolButtons.forEach((button) => {
 })
 
 $(() => {
-    currentFunction = new DrawingLine(contextReal);
+    currentFunction = new Drawing(contextReal);
+
+    $(".draw-button").click(() => {
+        currentFunction = new Drawing(contextReal);
+    })
 
     $(".line-button").click(() => {
-        currentFunction = new DrawingLine(contextReal);
+        currentFunction = new DrawingLine(contextReal, contextDraft);
     })
 
     $(".rectangle-button").click(() => {
