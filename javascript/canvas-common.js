@@ -13,7 +13,8 @@ let startBackgroundColor = "white";
 
 // undo variables
 let canvasHistoryArray = [];
-let canvasHistoryIndex = -1;
+let canvasHistoryIndex = 0;
+let canvasSavePoint = 0;
 
 // colors
 let currentStrokeColor = "";
@@ -34,6 +35,8 @@ drawingToolButtons.forEach((button) => {
 })
 
 $(() => {
+    updateCanvasHistory();
+
     currentFunction = new Drawing(contextReal);
 
     $(".draw-button").click(() => {

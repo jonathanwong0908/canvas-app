@@ -10,28 +10,52 @@ redoButton.addEventListener("click", () => {
 })
 
 function undo() {
-    if (canvasHistoryIndex === 0) {
-        clearCanvas();
-        // from clear-canvas.js
+    if (canvasHistoryIndex >= 1) {
         canvasHistoryIndex--;
-    } else if (canvasHistoryIndex > 0) {
-        canvasHistoryIndex--;
-        contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex], 0, 0);
-    } else {
-        return;
-    }
+        canvasSavePoint = canvasHistoryIndex;
+        contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex - 1], 0, 0);
+    } 
 }
 
 function redo() {
-    if (canvasHistoryIndex < canvasHistoryArray.length - 1) {
+    if (canvasHistoryIndex === canvasSavePoint && canvasHistoryIndex < canvasHistoryArray.length) {
         canvasHistoryIndex++;
-        contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex], 0, 0);
-    } else {
-        return;
+        canvasSavePoint++;
+        contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex - 1], 0, 0);
+    } else if (canvasHistoryIndex !== canvasSavePoint) {
+        canvasHistoryArray.splice(canvasHistoryIndex);
+        canvasSavePoint = canvasHistoryIndex;
     }
 }
 
 function updateCanvasHistory() {
-    canvasHistoryArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
+    canvasHistoryArray[canvasHistoryIndex] = contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height);
     canvasHistoryIndex++;
 }
+
+// function undo() {
+//     if (canvasHistoryIndex === 0) {
+//         clearCanvas();
+//         // from clear-canvas.js
+//         canvasHistoryIndex--;
+//     } else if (canvasHistoryIndex > 0) {
+//         canvasHistoryIndex--;
+//         contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex], 0, 0);
+//     } else {
+//         return;
+//     }
+// }
+
+// function redo() {
+//     if (canvasHistoryIndex < canvasHistoryArray.length - 1) {
+//         canvasHistoryIndex++;
+//         contextReal.putImageData(canvasHistoryArray[canvasHistoryIndex], 0, 0);
+//     } else {
+//         return;
+//     }
+// }
+
+// function updateCanvasHistory() {
+//     canvasHistoryArray.push(contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height));
+//     canvasHistoryIndex++;
+// }
