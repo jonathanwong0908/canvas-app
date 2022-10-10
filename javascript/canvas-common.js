@@ -44,6 +44,10 @@ $(() => {
         currentFunction = new DrawingRectangle(contextReal, contextDraft);
     })
 
+    $(".circle-button").click(() => {
+        currentFunction = new DrawingCircle(contextReal, contextDraft);
+    })
+
     $(".eraser-button").click(() => {
         currentFunction = new Eraser(contextReal);
     })
