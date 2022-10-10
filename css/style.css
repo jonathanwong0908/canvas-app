@@ -329,6 +329,7 @@ body {
 .fill-color-picker {
     height: 2rem;
     width: 3.72rem;
+    border: .5px solid var(--clr-neutral-200);
 }
 
 .stroke-color-picker,

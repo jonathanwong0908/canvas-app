@@ -5,13 +5,10 @@ class DrawingLine extends PaintFunction{
     }
 
     onMouseDown(coordinates, event) {
-        let strokeColor = strokeColorInput.getAttribute("selected-color");
-        let strokeWidth = document.querySelector(".stroke-width-range-input").getAttribute("value");
-
-        this.context.strokeStyle = strokeColor;
+        this.context.strokeStyle = currentStrokeColor;
         this.context.lineJoin = "round";
         this.context.lineCap = "round";
-        this.context.lineWidth = strokeWidth;
+        this.context.lineWidth = currentStrokeWidth;
         this.context.beginPath();
         this.context.moveTo(coordinates[0], coordinates[1]);
     }

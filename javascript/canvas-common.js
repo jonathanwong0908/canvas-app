@@ -11,6 +11,13 @@ let startBackgroundColor = "white";
 let canvasHistoryArray = [];
 let canvasHistoryIndex = -1;
 
+// colors
+let currentStrokeColor = "";
+let currentFillColor = "";
+
+// stroke width
+let currentStrokeWidth = "";
+
 // drawing tool color change while selected
 const drawingToolButtons = document.querySelectorAll(".drawing-tool-button");
 
@@ -22,15 +29,16 @@ drawingToolButtons.forEach((button) => {
     })
 })
 
-// set fill and stroke inputs as variables for usage in other scripts
-const strokeColorInput = document.querySelector(".stroke-color-picker");
-const fillColorInput = document.querySelector(".fill-color-picker");
-
 $(() => {
     currentFunction = new DrawingLine(contextReal);
 
-    $(".line-button").on("click", () => {
+    $(".line-button").click(() => {
         currentFunction = new DrawingLine(contextReal);
+    })
+
+    $(".rectangle-button").click(() => {
+        console.log("clicked")
+        currentFunction = new DrawingRectangle(contextReal, contextDraft);
     })
 })
 

@@ -1,23 +1,30 @@
-const strokeColorPicker = document.querySelector(".stroke-color-picker");
-const fillColorPicker = document.querySelector(".fill-color-picker");
+const strokeColorInput = document.querySelector(".stroke-color-picker");
+const fillColorInput = document.querySelector(".fill-color-picker");
 
-strokeColorPicker.setAttribute("selected-color", "black");
-fillColorPicker.setAttribute("selected-color", "black");
+strokeColorInput.setAttribute("selected-color", "black");
+fillColorInput.setAttribute("selected-color", "black");
+
+currentStrokeColor = "black";
+currentFillColor = "black";
 
 const strokePopup = new Picker({
-    parent: strokeColorPicker,
+    parent: strokeColorInput,
     color: "black",
     onChange: function(color) {
-        strokeColorPicker.style.backgroundColor = color.rgbaString;
-        strokeColorPicker.setAttribute("selected-color", color.rgbaString);
+        let rgbaString = color.rgbaString;
+        strokeColorInput.style.backgroundColor = rgbaString;
+        strokeColorInput.setAttribute("selected-color", rgbaString);
+        currentStrokeColor = rgbaString;
     }
 });
 
 const fillPopup = new Picker({
-    parent: fillColorPicker,
+    parent: fillColorInput,
     color: "black",
     onChange: function(color) {
-        fillColorPicker.style.backgroundColor = color.rgbaString;
-        fillColorPicker.setAttribute("selected-color", color.rgbaString);
+        let rgbaString = color.rgbaString;
+        fillColorInput.style.backgroundColor = rgbaString;
+        fillColorInput.setAttribute("selected-color", rgbaString);
+        currentFillColor = rgbaString;
     }
 });
