@@ -363,8 +363,10 @@ body {
 }
 
 .canvas {
+    border: 4px rgb(121, 121, 121) solid;
     position: absolute;
-    border-radius: 5px;
+
+
 }
 
 .canvas-real {
@@ -373,4 +375,8 @@ body {
 
 .canvas-draft {
     background-color: transparent;
+}
+
+#import {
+    display: none;
 }

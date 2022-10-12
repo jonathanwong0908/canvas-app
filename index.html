@@ -27,6 +27,7 @@
     <script src="./javascript/color-picker.js" defer></script>
     <script src="./javascript/stroke-width.js" defer></script>
     <script src="./javascript/download.js" defer></script>
+    <script src="./javascript/open-folder.js" defer></script>
 
     <!-- drawing tool scripts -->
     <script src="./javascript/drawing.js" defer></script>
@@ -35,12 +36,20 @@
     <script src="./javascript/drawing-circle.js" defer></script>
     <script src="./javascript/drawing-quadratic-curve.js" defer></script>
     <script src="./javascript/eraser.js" defer></script>
+    <script src="./javascript/text.js" defer></script>
+
 </head>
 
 <body class="grid bg-neutral-200">
     <nav class="primary-tool-navigation bg-neutral-700 flow">
         <div class="admin-tool-container grid">
-            <button class="tool-button"><i class="fa-solid fa-file-import"></i></button>
+
+            <div class="btn openFile Button">
+                <button class="tool-button import-button" onclick="uploadImage()"><i
+                        class="fa-solid fa-file-import"></i></button>
+                <input id="import" type="file">
+            </div>
+
             <button class="tool-button download-button"><i class="fa-solid fa-download"></i></button>
             <button class="tool-button clear-button"><i class="fa-solid fa-trash"></i></button>
         </div>
@@ -57,6 +66,8 @@
                     class="fa-solid fa-u"></i></button>
             <button class="tool-button drawing-tool-button eraser-button" selected="false"><i
                     class="fa-solid fa-eraser"></i></button>
+            <button class="tool-button ff-primary fw-bold" id="text"><u>T</u></button>
+
         </div>
 
         <div>
