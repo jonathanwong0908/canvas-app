@@ -3,8 +3,9 @@ const clearButton = document.querySelector(".clear-button");
 clearButton.addEventListener("click", () => {
     if (confirm("This will delete all your data on this canvas")) {
         clearCanvas();
-        undoArray = [];
-        undoIndex = -1;
+        canvasHistoryArray = [];
+        canvasHistoryIndex = 0;
+        canvasSavePoint = 0;
     } else {
         return;
     }
