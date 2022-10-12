@@ -344,6 +344,7 @@ body {
     background-color: black;
 }
 
+.admin-tool-container,
 .undo-redo-container,
 .color-tool-container,
 .stroke-width-container {
@@ -351,7 +352,9 @@ body {
 }
 
 .undo-button,
-.redo-button {
+.redo-button,
+.download-button,
+.clear-button {
     width: 4rem;
     height: 2rem;
 }
